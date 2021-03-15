@@ -1,4 +1,6 @@
 ## Installation Instructions:
+Ensure these instructions are followed in order.
+
 1. Open a new or existing Unity project.
 
 2. Import TUIO touchscript:
