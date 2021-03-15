@@ -1,5 +1,4 @@
 ## Installation Instructions:
-Ensure these instructions are followed in order.
 
 1. Open a new or existing Unity project.
 
@@ -16,6 +15,7 @@ Ensure these instructions are followed in order.
 > - Select the **MLAPI.unitypackage** from your downloads folder, then import all.
 
 3. Import the wall package into your project:
+> - Important: This package must be installed last, other packages will be partially overwritten.
 > - Download the latest **EPLWall.unitypackage** from https://github.com/haleyrequa/UnityWallPackage/releases
 > - Within unity, navigate to **Assets > Import Package > Custom Package**
 > - Select the **EPLWall.unitypackage** from your downloads folder, then import all.
