@@ -1,10 +1,14 @@
 # User Guide
 
 ## The Zones
+
+[Wall Specs](https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/WallSpecs.MD)
+
 There are actually two digitial walls that can run exhibits at the Library. Zone A is the 
 Zone B is 
 
 ## The Screens
+
 The wall is made up of large Planar Screens
 
 ## Multiple Virtual Machines
@@ -14,12 +18,26 @@ Zone B is made up of 4 Virtual Machines:
 
 ![alt text](https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/Images/VirtualMachines.PNG?raw=true)
 
+## Camera Viewports
 
-## Build your project: 
+[Camera](https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/Camera.MD)
 
+# Networking
+
+[Networking](https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/Networking.MD)
+
+## Audio
+
+[Audio](https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/Audio.MD)
+
+## Build Settings: 
+
+[Build Settings](https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/BuildSettings.MD)
 - In the player settings, esure that "Resizeable Window" is checked.
 
 ## Testing at Home
+
+[Testing](https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/Testing.MD)
 
 To run your app at home, you'll want to use a custom bat file to start your game. Then you can see the perspective through a single viewport
 
