@@ -22,7 +22,7 @@ Zone B is made up of 4 Virtual Machines:
 
 [Camera](https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/Camera.MD)
 
-# Networking
+## Networking
 
 [Networking](https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/Networking.MD)
 
