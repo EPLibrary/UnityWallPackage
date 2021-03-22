@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3494526013400818729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3494526013400818727}
+  - component: {fileID: 3494526013400818724}
+  - component: {fileID: 3494526013400818725}
+  - component: {fileID: 3494526013400818730}
+  - component: {fileID: 3494526013400818731}
+  - component: {fileID: 3494526013400818728}
+  m_Layer: 0
+  m_Name: TouchManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3494526013400818727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494526013400818729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3494526013400818724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494526013400818729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd4c394fe06f4ea49e03aaa5e7a8190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnFrameStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFrameFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointersAdd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointersUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointersPress:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointersRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointersRemove:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointersCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  basicEditor: 0
+  displayDevice: {fileID: 0}
+  shouldCreateCameraLayer: 1
+  shouldCreateStandardInput: 1
+  useSendMessage: 0
+  sendMessageEvents: 252
+  sendMessageTarget: {fileID: 0}
+  useUnityEvents: 0
+  layers: []
+--- !u!114 &3494526013400818725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494526013400818729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4da5662d285ce47b2f60e770d3c2cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tuioInputs:
+  - {fileID: 3494526013400818730}
+  - {fileID: 3494526013400818731}
+  - {fileID: 3494526013400818728}
+--- !u!114 &3494526013400818730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494526013400818729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2220e33010ff04ebc620ee215b8143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicEditor: 1
+  panelIndex: 0
+  numPanels: 0
+  tuioPort: 3334
+  supportedInputs: 7
+--- !u!114 &3494526013400818731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494526013400818729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2220e33010ff04ebc620ee215b8143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicEditor: 1
+  panelIndex: 0
+  numPanels: 0
+  tuioPort: 3335
+  supportedInputs: 7
+--- !u!114 &3494526013400818728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494526013400818729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2220e33010ff04ebc620ee215b8143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicEditor: 1
+  panelIndex: 0
+  numPanels: 0
+  tuioPort: 3336
+  supportedInputs: 7
