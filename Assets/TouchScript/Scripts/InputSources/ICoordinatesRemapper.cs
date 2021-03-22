@@ -19,6 +19,6 @@ namespace TouchScript.InputSources
         /// </summary>
         /// <param name="input">Original coordinates.</param>
         /// <returns>Changed coordinates.</returns>
-        Vector2 Remap(Vector2 input);
+        Vector2 Remap(Vector2 input, int index = 0, int size = 1);
     }
 }

@@ -183,6 +183,12 @@ namespace TouchScript.InputSources
             return position;
         }
 
+        protected virtual Vector2 remapCoordinates(Vector2 position, int index, int size)
+        {
+            if (coordinatesRemapper != null) return coordinatesRemapper.Remap(position, index, size);
+            return position;
+        }
+
         #endregion
     }
 }
