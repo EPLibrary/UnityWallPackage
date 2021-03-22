@@ -4,3 +4,5 @@ A Unity package for developing applications on the digital touch wall at the Sta
 [Installation Instructions](https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/Installation.MD)
 
 [User Guide](https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/UserGuide.MD)
+
+[Student Project Guide](https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/StudentGuide.MD)
