@@ -1,6 +1,6 @@
 # Student Project Guide
 
-This is a guide for post secondary students working on the Wall. Your application will run on a single virtual machine, which spans 3 Multitaction touch screens. It will be part of a larger student exhibit, where multiple student games will run along side each other. You will not be required to do any networking or camera cropping. The physical screen is 195.9cm wide by 121.5cm.
+This is a guide for post secondary students working on the Wall. Your application will run on a single virtual machine, which spans 3 Multitaction touch screens. It will be part of a larger student exhibit, where multiple student games will run along side each other. You will not be required to do any networking or camera cropping. The size of the physical screen that your game will be displayed on is 195.9cm wide by 121.5cm.
 
 <p align="center"><img src="https://github.com/haleyrequa/UnityWallPackage/blob/main/Documentation/Images/StudentProjects.PNG?raw=true" alt="alt text"></p>
 
