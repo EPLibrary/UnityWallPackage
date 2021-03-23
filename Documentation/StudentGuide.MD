@@ -17,7 +17,7 @@ This is a guide for post secondary students working on the Wall. Your applicatio
 
 3. Import the student wall package into your project:
 > - Important: This package must be installed last, other packages will be partially overwritten.
-> - Download the latest **StudentWall.unitypackage** from https://github.com/haleyrequa/UnityWallPackage/releases
+> - Download the latest **StudentWall.unitypackage** from https://github.com/EPLibrary/UnityWallPackage/releases/tag/Student_1.0
 > - Within unity, navigate to **Assets > Import Package > Custom Package**
 > - Select the **EPLWall_Student.unitypackage** from your downloads folder, then import all.
 
