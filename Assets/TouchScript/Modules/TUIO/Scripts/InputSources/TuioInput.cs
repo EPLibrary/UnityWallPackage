@@ -376,7 +376,6 @@ namespace TouchScript.InputSources
 
 
             var entity = e.Cursor;
-            Debug.LogError("Adding touch " + entity.X + " , " + entity.Y);
             lock (this)
             {
                 //var x = entity.X * screenWidth;
@@ -388,7 +387,6 @@ namespace TouchScript.InputSources
         private void OnCursorUpdated(object sender, TuioCursorEventArgs e)
         {
             var entity = e.Cursor;
-            Debug.LogError("updating touch " + entity.X + " , " + entity.Y);
             lock (this)
             {
                 TouchPointer touch;
