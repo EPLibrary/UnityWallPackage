@@ -24,28 +24,23 @@ namespace EPL
         { "DarkBlue", new Color(0f / 255f, 75f / 255f, 141f / 255f) }
         };
 
-        public static readonly float PanelWidth = 0.653f;
+        public static readonly float PanelWidth = 0.6545f;
         public static readonly float PanelHeight = 1.215f;
-        public static readonly float ZoneBPlanarHeight = 2.705f; //TODO
-        public static readonly float ZoneAProjectorWidth = 5.76f;
+        public static readonly float ZoneBPlanarHeight = 2.73f; //TODO
+        public static readonly float ZoneAPlanarWidth = 5.76f;
         public static readonly float ZoneAPlanarHeight = 4.212f;
-        public static readonly float ZoneBProjectorWidth = 4.802f; // TODO
+        public static readonly float ZoneBPlanarWidth = 4.6087f; // TODO
         public static readonly float DevMonitorWidth = 0.894f;
         public static readonly float DevMonitorHeight = 0.473f;
         public static readonly float QUTDevProjectorWidth = 2.744f;
         public static readonly float QUTDevProjectorHeight = 1.3f;
-        public static readonly float LCDWidth = 0.576f;
-        public static readonly float LCDHeight = 0.36f;//0.324f; // TODO
-        public static readonly float ZoneBLedOffset = 0.021f;
-
-        public static readonly Vector2 PanelResolution = new Vector2(1080f, 1920f);
-        public static readonly Vector2 PlanarAResolution = new Vector2(3200f, 2340f);
+        public static readonly float LEDWidth = 0.576f;
+        public static readonly float LEDHeight = 0.36f;//0.324f; // TODO
+        public static readonly float ZoneBLedOffset = 0.0145f;
 
         public static readonly int DevelopmentNumPanels = 3;
         public static readonly int ZoneANumPanels = 18;
         public static readonly int ZoneBNumPanels = 7;
-        public static readonly int ZoneANumPlanars = 2;
-        public static readonly int ZoneBNumPlanars = 1;
         public static readonly int PanelsPerDisplay = 3;
         public static readonly int DevNumLCDRows = 1;
         public static readonly int DevNumLCDColumns = 2;
