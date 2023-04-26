@@ -91,7 +91,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3494526013400818729}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4da5662d285ce47b2f60e770d3c2cf, type: 3}
+  m_Script: {fileID: 11500000, guid: e99a6b50e9e8c8845ac84e7bf3086794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tuioInputs:

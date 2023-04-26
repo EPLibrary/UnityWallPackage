@@ -49,8 +49,8 @@ namespace EPL
         None = -1,
 
         ZoneA_Full = 0,
-        ZoneA_Projector_0 = 1,
-        ZoneA_Projector_1 = 2,
+        ZoneA_LED_0 = 1,
+        ZoneA_LED_1 = 2,
         ZoneA_0_2 = 3,
         ZoneA_3_5 = 4,
         ZoneA_6_8 = 5,
@@ -77,7 +77,7 @@ namespace EPL
         ZoneA_17 = 26,
 
         ZoneB_Full = 27,
-        ZoneB_Projector = 28,
+        ZoneB_LED = 28,
         ZoneB_0_2 = 29,
         ZoneB_3_5 = 30,
         ZoneB_4_6 = 31,
@@ -90,7 +90,7 @@ namespace EPL
         ZoneB_6 = 38,
 
         Development_Full = 39,
-        Development_LCD = 40,
+        Development_LED = 40,
         Development_Monitors = 41,
 
         QUT_Development_Projector = 42
@@ -110,6 +110,14 @@ namespace EPL
         ZoneB_0,
         ZoneB_1,
         ZoneB_C
+    }
+
+    public enum Zone
+    {
+        None = -1,
+        ZoneA,
+        ZoneB,
+        Development
     }
 
     public class Displays

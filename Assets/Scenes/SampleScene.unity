@@ -217,18 +217,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1051657762 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1256668996, guid: e5354b9119eb4c446bbc8739986f881b, type: 3}
-  m_PrefabInstance: {fileID: 1766782227}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e5768c36d1bb4acea50bd233372843a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &1766782227
+--- !u!1001 &1235131024
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -237,19 +226,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8600418811112677267, guid: e5354b9119eb4c446bbc8739986f881b, type: 3}
       propertyPath: m_Name
-      value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 8600418811112677268, guid: e5354b9119eb4c446bbc8739986f881b, type: 3}
-      propertyPath: zone
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8600418811112677268, guid: e5354b9119eb4c446bbc8739986f881b, type: 3}
-      propertyPath: drawZone
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8600418811112677268, guid: e5354b9119eb4c446bbc8739986f881b, type: 3}
-      propertyPath: editorDisplay
-      value: 1
+      value: EPLCamera
       objectReference: {fileID: 0}
     - target: {fileID: 8600418811112677270, guid: e5354b9119eb4c446bbc8739986f881b, type: 3}
       propertyPath: m_RootOrder
@@ -395,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 3494526013400818724, guid: a910923209a2dfa4bb1f8669bd411d04, type: 3}
       propertyPath: layers.Array.data[0]
       value: 
-      objectReference: {fileID: 1051657762}
+      objectReference: {fileID: 0}
     - target: {fileID: 3494526013400818727, guid: a910923209a2dfa4bb1f8669bd411d04, type: 3}
       propertyPath: m_RootOrder
       value: 1

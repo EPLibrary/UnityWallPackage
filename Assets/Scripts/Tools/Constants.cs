@@ -26,16 +26,16 @@ namespace EPL
 
         public static readonly float PanelWidth = 0.6545f;
         public static readonly float PanelHeight = 1.215f;
-        public static readonly float ZoneBPlanarHeight = 2.73f; //TODO
+        public static readonly float ZoneBPlanarHeight = 2.73f;
         public static readonly float ZoneAPlanarWidth = 5.76f;
         public static readonly float ZoneAPlanarHeight = 4.212f;
-        public static readonly float ZoneBPlanarWidth = 4.6087f; // TODO
+        public static readonly float ZoneBPlanarWidth = 4.6087f; 
         public static readonly float DevMonitorWidth = 0.894f;
         public static readonly float DevMonitorHeight = 0.473f;
         public static readonly float QUTDevProjectorWidth = 2.744f;
         public static readonly float QUTDevProjectorHeight = 1.3f;
         public static readonly float LEDWidth = 0.576f;
-        public static readonly float LEDHeight = 0.36f;//0.324f; // TODO
+        public static readonly float LEDHeight = 0.36f;
         public static readonly float ZoneBLedOffset = 0.0145f;
 
         public static readonly int DevelopmentNumPanels = 3;

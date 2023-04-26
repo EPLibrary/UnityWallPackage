@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 namespace EPL
 {
@@ -12,24 +13,18 @@ namespace EPL
         /// </summary>
         private static Chop instance;
 
-        [Tooltip("Draw Zone A wireframe within the editor.")]
-        public bool drawZoneA;
-
-        [Tooltip("Draw Zone B wireframe within the editor.")]
-        public bool drawZoneB;
-
-        [Tooltip("Updates the projection matrix within the editor even when it is not running. Warning, the camera cannot be edited after this is set to true.")]
-        private bool renderCameraInEditor;
+        [Tooltip("Draw the Zone wireframe within the editor.")]
+        public bool drawZoneWireframe;
 
         /// <summary>
         /// The camera view that will be used within the editor.
         /// </summary>
         [Tooltip("The camera view that will be used within the editor. \nThis value will not be used in builds, it must be defined by the -camera command line argument.")]
-        public CameraEnum editorCamera;
+        public CameraEnum editorCamera = CameraEnum.None;
         private CameraEnum previousEditorCamera;
-        [Range(0, 42)]
+        [Range(-1, 42)]
         [Tooltip("This variable will scroll through each camera view and update the editorCamera. It will only work at runtime.")]
-        public int panel = 1;
+        public int editorCamera_slider = -1;
         private int previousPanel;
         private Vector3 previousScreenPosition;
 
@@ -37,8 +32,15 @@ namespace EPL
         /// <summary>
         /// Used to define the bottom center position of the wall screen.
         /// </summary>
-        [Tooltip("The position of this transform will be used to define the bottom center position of the wall screen.")]
-        public Transform screenPosition;
+        private Vector3 screenPosition;
+        private Vector3 ScreenPosition
+        {
+            get
+            {
+                SetScreenPositon();
+                return screenPosition;
+            }
+        }
 
         /// <summary>
         /// The Projection Matrix of the camera. It is calculated and assigned to the camera at the start.
@@ -48,10 +50,10 @@ namespace EPL
         void Awake()
         {
             instance = this;
-            panel = (int)editorCamera;
+            editorCamera_slider = (int)editorCamera;
             previousEditorCamera = editorCamera;
-            previousPanel = panel;
-            previousScreenPosition = screenPosition.position;
+            previousPanel = editorCamera_slider;
+            previousScreenPosition = ScreenPosition;
         }
 
         void Start()
@@ -69,20 +71,20 @@ namespace EPL
 
             if (view == null || ((View)view).GamePosition == null)
             {
-                Camera.main.gameObject.SetActive(false);
-                Debug.LogError("There is no designated Display for your machine ");
+#if !UNITY_EDITOR
+                Debug.LogError("There is no designated Display for your machine. Set the -camera parameter in your command line aguments.");
+#endif
                 return;
             }
 
             View _view = (View)view;
-            Vector3 screen = screenPosition.position;
+            Vector3 screen = ScreenPosition;
             Vector3 upperLeft = new Vector3(((Vector3)_view.GamePosition).x + -_view.Width / 2f + screen.x, ((Vector3)_view.GamePosition).y + _view.Height / 2f + screen.y, screen.z);
             Vector3 lowerRight = new Vector3(((Vector3)_view.GamePosition).x + _view.Width / 2f + screen.x, ((Vector3)_view.GamePosition).y + -_view.Height / 2f + screen.y, screen.z);
             Vector3 lowerLeft = new Vector3(((Vector3)_view.GamePosition).x + -_view.Width / 2f + screen.x, ((Vector3)_view.GamePosition).y + -_view.Height / 2f + screen.y, screen.z);
 
             Camera.main.projectionMatrix = getAsymProjMatrix(lowerLeft, lowerRight, upperLeft, Camera.main.transform.position, Camera.main.nearClipPlane, Camera.main.farClipPlane);
             Camera.main.transform.rotation = Quaternion.identity;
-            screenPosition.position = screen;
             projectionMatrix = Camera.main.projectionMatrix;
         }
 
@@ -129,12 +131,12 @@ namespace EPL
                     view.Height = Constants.PanelHeight + Constants.ZoneAPlanarHeight;
                     view.GamePosition = new Vector3(0f, (Constants.ZoneAPlanarHeight + Constants.PanelHeight) / 2f);
                     break;
-                case CameraEnum.ZoneA_Projector_0:
+                case CameraEnum.ZoneA_LED_0:
                     view.Width = Constants.ZoneAPlanarWidth;
                     view.Height = Constants.ZoneAPlanarHeight;
                     view.GamePosition = new Vector3(-Constants.ZoneAPlanarWidth / 2f, Constants.PanelHeight + Constants.ZoneAPlanarHeight / 2f);
                     break;
-                case CameraEnum.ZoneA_Projector_1:
+                case CameraEnum.ZoneA_LED_1:
                     view.Width = Constants.ZoneAPlanarWidth;
                     view.Height = Constants.ZoneAPlanarHeight;
                     view.GamePosition = new Vector3(Constants.ZoneAPlanarWidth / 2f, Constants.PanelHeight + Constants.ZoneAPlanarHeight / 2f);
@@ -174,7 +176,7 @@ namespace EPL
                     view.Height = Constants.PanelHeight + Constants.ZoneBPlanarHeight;
                     view.GamePosition = new Vector3(0f, (Constants.ZoneBPlanarHeight + Constants.PanelHeight) / 2f);
                     break;
-                case CameraEnum.ZoneB_Projector:
+                case CameraEnum.ZoneB_LED:
                     view.Width = Constants.ZoneBPlanarWidth;
                     view.Height = Constants.ZoneBPlanarHeight;
                     view.GamePosition = new Vector3(Constants.ZoneBLedOffset, Constants.PanelHeight + Constants.ZoneBPlanarHeight / 2f);
@@ -204,7 +206,7 @@ namespace EPL
                     view.Height = Constants.DevMonitorHeight;
                     view.GamePosition = new Vector3(0f, Constants.PanelHeight + Constants.DevMonitorHeight / 2f);
                     break;
-                case CameraEnum.Development_LCD:
+                case CameraEnum.Development_LED:
                     view.Width = Constants.LEDWidth * Constants.DevNumLCDColumns;
                     view.Height = Constants.LEDHeight;
                     view.GamePosition = new Vector3(-2f * Constants.PanelWidth, -0.035f + Constants.PanelHeight + Constants.LEDHeight / 2f);
@@ -255,29 +257,30 @@ namespace EPL
 
         private void Update()
         {
-            PostProcessingLayer_MatrixCheck();
+            //PostProcessingLayer_MatrixCheck();
 #if UNITY_EDITOR
-            UpdateEditorCamera();
+            if (UpdateDisplaySelection())
+                ChopCamera();
 #endif
         }
 
-        private void UpdateEditorCamera()
+        private bool UpdateDisplaySelection()
         {
-            if (previousEditorCamera == editorCamera && previousPanel == panel && previousScreenPosition == screenPosition.position)
-                return;
+            if (previousEditorCamera == editorCamera && previousPanel == editorCamera_slider && previousScreenPosition == ScreenPosition)
+                return false;
 
             if (previousEditorCamera != editorCamera)
             {
-                panel = (int)editorCamera;
+                editorCamera_slider = (int)editorCamera;
             }
-            if (previousPanel != panel)
+            if (previousPanel != editorCamera_slider)
             {
-                editorCamera = (CameraEnum)panel;
+                editorCamera = (CameraEnum)editorCamera_slider;
             }
 
-            ChopCamera();
             previousEditorCamera = editorCamera;
-            previousPanel = panel;
+            previousPanel = editorCamera_slider;
+            return true;
         }
 
         void PostProcessingLayer_MatrixCheck()
@@ -327,11 +330,10 @@ namespace EPL
 
         private void OnDrawGizmos()
         {
-#if UNITY_EDITOR
-            if (renderCameraInEditor)
-                UpdateEditorCamera();
-#endif
-            if (drawZoneA)
+            UpdateDisplaySelection();
+            Zone zone = GetSelectedZone();
+
+            if (drawZoneWireframe && zone == Zone.ZoneA)
             {
                 DrawView(CameraEnum.ZoneA_0_2, Color.white);
                 DrawView(CameraEnum.ZoneA_3_5, Color.white);
@@ -339,22 +341,40 @@ namespace EPL
                 DrawView(CameraEnum.ZoneA_9_11, Color.white);
                 DrawView(CameraEnum.ZoneA_12_14, Color.white);
                 DrawView(CameraEnum.ZoneA_15_17, Color.white);
-                DrawView(CameraEnum.ZoneA_Projector_0, Color.white);
-                DrawView(CameraEnum.ZoneA_Projector_1, Color.white);
+                DrawView(CameraEnum.ZoneA_LED_0, Color.white);
+                DrawView(CameraEnum.ZoneA_LED_1, Color.white);
             }
-            if (drawZoneB)
+            if (drawZoneWireframe && zone == Zone.ZoneB)
             {
                 DrawView(CameraEnum.ZoneB_0_2, Color.white);
                 DrawView(CameraEnum.ZoneB_3_5, Color.white);
                 DrawView(CameraEnum.ZoneB_6, Color.white);
-                DrawView(CameraEnum.ZoneB_Projector, Color.white);
+                DrawView(CameraEnum.ZoneB_LED, Color.white);
             }
             DrawView(editorCamera, Color.blue);
         }
 
+        private Zone GetSelectedZone()
+        {
+            CameraEnum cameraEnum = GetCameraEnum();
+
+            if (cameraEnum >= CameraEnum.ZoneA_Full && cameraEnum <= CameraEnum.ZoneA_17)
+                return Zone.ZoneA;
+
+            if (cameraEnum >= CameraEnum.ZoneB_Full && cameraEnum <= CameraEnum.ZoneB_6)
+                return Zone.ZoneB;
+
+            if (cameraEnum >= CameraEnum.Development_Full && cameraEnum <= CameraEnum.Development_Monitors)
+                return Zone.Development;
+
+            return Zone.None;
+        }
+
         private void DrawView(CameraEnum camera, Color color)
         {
-            Vector3 screen = screenPosition.position;
+            Vector3 screen = ScreenPosition;
+
+            if (camera == CameraEnum.None) return;
 
             View temp = GetViewFromCameraEnum(camera);
 
@@ -372,6 +392,12 @@ namespace EPL
             Gizmos.DrawLine(upperRight, lowerRight);
             Gizmos.DrawLine(lowerLeft, lowerRight);
             Gizmos.DrawLine(lowerLeft, upperLeft);
+        }
+
+        private void SetScreenPositon()
+        {
+            float height = (GetSelectedZone() == Zone.ZoneA) ? Constants.PanelHeight + Constants.ZoneAPlanarHeight : Constants.PanelHeight + Constants.ZoneBPlanarHeight;
+            screenPosition = transform.position + new Vector3(0f, -height / 2f, height / (2f * Mathf.Tan(Mathf.Deg2Rad * Camera.main.fieldOfView / 2f)));
         }
     }
 }
