@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3494526013400818730}
   - component: {fileID: 3494526013400818731}
   - component: {fileID: 3494526013400818728}
+  - component: {fileID: 3508391359509222}
   m_Layer: 0
   m_Name: TouchManager
   m_TagString: Untagged
@@ -149,3 +150,26 @@ MonoBehaviour:
   numPanels: 0
   tuioPort: 3336
   supportedInputs: 7
+--- !u!114 &3508391359509222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494526013400818729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e276ccba4f7314d9988af19f9b3a611b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicEditor: 1
+  generalProps: 0
+  windowsProps: 0
+  webglProps: 0
+  windows8API: 0
+  windows7API: 0
+  webGLTouch: 1
+  windows8Mouse: 1
+  windows7Mouse: 1
+  universalWindowsMouse: 1
+  emulateSecondMousePointer: 1

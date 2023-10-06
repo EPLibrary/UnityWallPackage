@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8600418811112677270}
   - component: {fileID: 9012021297569703789}
   - component: {fileID: 1256668996}
-  - component: {fileID: 2841862807985254107}
   - component: {fileID: 1827511465962392198}
   - component: {fileID: 2198382447132694473}
   m_Layer: 0
@@ -103,29 +102,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   useHitFilters: 0
---- !u!114 &2841862807985254107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8600418811112677267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e276ccba4f7314d9988af19f9b3a611b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basicEditor: 0
-  generalProps: 0
-  windowsProps: 0
-  webglProps: 0
-  windows8API: 0
-  windows7API: 0
-  webGLTouch: 1
-  windows8Mouse: 1
-  windows7Mouse: 1
-  universalWindowsMouse: 1
-  emulateSecondMousePointer: 1
 --- !u!114 &1827511465962392198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawZoneWireframe: 0
   editorCamera: -1
-  panel: -1
+  editorCamera_slider: -1
 --- !u!114 &2198382447132694473
 MonoBehaviour:
   m_ObjectHideFlags: 0
